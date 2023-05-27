@@ -284,6 +284,19 @@ public class SingleLinkedList<E extends Comparable<E>> {
         return slowPointer;
     }
 
+    public void sortBubble() {
+        if (head == null) return;
+        for (Node<E> tmp = head; tmp != null; tmp = tmp.next) {
+            for (Node<E> ptr = tmp.next; ptr != null; ptr = ptr.next) {
+                if (tmp.element.compareTo(ptr.element) > 0) {
+                    E temp = ptr.element;
+                    ptr.element = tmp.element;
+                    tmp.element = temp;
+                }
+            }
+        }
+    }
+
     public boolean detectCycleInLinkedList(Node<E> node) {
         if (head == null) {
             return false;
@@ -327,7 +340,7 @@ public class SingleLinkedList<E extends Comparable<E>> {
 //                if(count==0) removeAtFirst();
 //                else if(count==size) removeAtLast();
 //                else{
-//                    Node<T>  beforeCurrent =prev;
+//                    Node<E>  beforeCurrent =prev;
 //                    beforeCurrent.next=beforeCurrent.next.next;
 //                    return true;
 //                }
