@@ -1,4 +1,4 @@
-package com.comprehensive.practice.datastructure.bst;
+package com.comprehensive.practice.datastructure.bst.ps0;
 
 public class TestingBst {
     public static void main(String[] args) {

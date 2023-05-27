@@ -1,4 +1,4 @@
-package com.comprehensive.practice.datastructure.bst;
+package com.comprehensive.practice.datastructure.bst.ps0;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -75,7 +75,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     public int countElement(Node<T> node) {
         if (node == null) return 0;
-        return 1 + countElement(node.leftChild) + countElement((node.rightChild));
+        return 1 + countElement(node.leftChild) + countElement(node.rightChild);
     }
 
     public int  countNode(Node<T> node) {
