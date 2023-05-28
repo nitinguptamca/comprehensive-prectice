@@ -19,9 +19,10 @@ import java.util.List;
 public class CollectionOfAllSubset {
 
     public static void main(String[] args) {
-        int[] set = {1, 2, 3};
+        Integer[] set = {1, 2, 3};
         CollectionOfAllSubset collectionOfAllSubset = new CollectionOfAllSubset();
-        List<List<Integer>> value = collectionOfAllSubset.getAllSubset(set);
+      //  List<List<Integer>> value = collectionOfAllSubset.getAllSubset(set);
+        List<List<Integer>>   value =   collectionOfAllSubset.getAllSebSetGenericImpl(set);
         System.out.println(value);
     }
 
@@ -44,6 +45,25 @@ public class CollectionOfAllSubset {
             getAllSubset(superSet,subset,array,i+1);
             System.out.println(" subset :"+ subset + " i:" +1);
             subset.remove(subset.size() -1);
+        }
+    }
+
+    public <T>List<List<T>> getAllSebSetGenericImpl(T[] array){
+        List<List<T>> superSet = new ArrayList<>();
+        List<T> subSet = new ArrayList<>();
+        getAllSebSetGenericImpl(superSet ,subSet ,array ,0);
+        return superSet;
+    }
+
+    private <T> void getAllSebSetGenericImpl(List<List<T>> superSet,
+                                             List<T> subSet,
+                                             T[] array,
+                                             int idx) {
+        superSet.add(new ArrayList<>(subSet));
+        for (int j = idx; j < array.length; j++) {
+           subSet.add(array[j]);
+           getAllSebSetGenericImpl(superSet ,subSet, array ,j+1);
+           subSet.remove(subSet.size() -1);
         }
     }
 
