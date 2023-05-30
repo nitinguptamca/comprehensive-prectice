@@ -1,4 +1,4 @@
-package com.comprehensive.practice.company.codility.test.easy;
+package com.comprehensive.practice.company.codility.test.hard;
 
 /**
  * @author nitin
