@@ -6,10 +6,10 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class People {
+
 
     private int index;
     private String userId;
@@ -20,4 +20,19 @@ public class People {
     private String phone;
     private LocalDate dateOfBirth;
     private String jobTitle;
+
+    @Override
+    public String toString() {
+        return "\n People{" +
+                "index=" + index +
+                ", userId='" + userId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", sex='" + sex + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", jobTitle='" + jobTitle + '\'' +
+                '}';
+    }
 }

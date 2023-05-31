@@ -1,6 +1,7 @@
 package com.comprehensive.practice.company.codility.test.easy;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -17,6 +18,8 @@ public class WordCountParticularFile {
         Path path = Paths.get("D:\\roomno13\\comprehensive-prectice\\src\\main\\java\\com\\comprehensive\\practice\\datastructure\\bst\\ps0\\BinarySearchTree.java");
         Map<String, Long> sssss = particularFile.wordCount(path);
         System.out.println(sssss);
+
+
     }
 
     public Map<String, Long> wordCount(Path path) throws IOException {
@@ -35,9 +38,8 @@ public class WordCountParticularFile {
                 .collect(Collectors.groupingBy(Function.identity() ,Collectors.counting()));
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main3(String[] args) throws IOException {
         Path path = Paths.get("D:\\roomno13\\comprehensive-prectice\\src\\main\\java\\com\\comprehensive\\practice\\company\\codility\\test\\hard\\ReverseStringExceptSpecialCharacter.java");
-
         Stream<String> value = Files.lines(path);
         Map<String, Long> wordCountMap = value.
                 flatMap(e -> e.lines().map(k -> k.trim().split(" ")))
@@ -46,6 +48,22 @@ public class WordCountParticularFile {
                 .stream()
                 .collect(Collectors.groupingBy(Function.identity(),
                         Collectors.counting()));
+    }
+
+    public static void main22(String[] args) throws IOException {
+        Path path= Paths.get("D:\\roomno13\\comprehensive-prectice\\src\\main\\java\\com\\comprehensive\\practice\\company\\codility\\test\\easy\\ArrayListTest.java");
+        Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8);
+        Stream<String> words = lines.flatMap(line -> Stream.of(line.split(" ")));
+        List<String> listOfLines = words.collect(Collectors.toList());
+        Map<String, Long> map = listOfLines.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(map);
+    }
+
+    public static void main(String[] args) throws IOException {
+        Path path= Paths.get("D:\\roomno13\\comprehensive-prectice\\src\\main\\java\\com\\comprehensive\\practice\\company\\codility\\test\\easy\\ArrayListTest.java");
+        Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8);
+
+
     }
 
 
