@@ -1,7 +1,5 @@
 package com.comprehensive.practice.datastructure.queue.pr1;
 
-import com.comprehensive.practice.datastructure.queue.Queue;
-
 public class QueueGeneric <T> {
     T[] queue;
     int capacity;

@@ -1,7 +1,6 @@
 package com.comprehensive.practice.company.codility.test.easy;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 public class AnagramTest {
     public static void main(String[] args) {

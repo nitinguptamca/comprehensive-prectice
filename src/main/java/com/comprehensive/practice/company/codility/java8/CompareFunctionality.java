@@ -1,10 +1,8 @@
 package com.comprehensive.practice.company.codility.java8;
 
 import com.comprehensive.practice.bean.People;
-import com.comprehensive.practice.bean.Product;
 import com.comprehensive.practice.utility.ReadFileUtility;
 
-import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 

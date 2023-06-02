@@ -5,8 +5,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import java.lang.Runtime;
-
 public class DemoSingleton implements Serializable {
     private static final long serialVersionUID = 1L;
 

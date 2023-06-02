@@ -1,4 +1,4 @@
-package com.comprehensive.practice.company.codility.java8;
+package com.comprehensive.practice.company.codility.java8.FlatMap;
 
 import java.util.ArrayList;
 import java.util.Arrays;

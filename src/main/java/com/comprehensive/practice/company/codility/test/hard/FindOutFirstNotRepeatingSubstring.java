@@ -1,8 +1,5 @@
 package com.comprehensive.practice.company.codility.test.hard;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 /**
  * Find out first not repeating sub string
  * String s ="abcabcbb"

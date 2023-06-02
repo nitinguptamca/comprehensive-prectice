@@ -3,9 +3,9 @@ package com.comprehensive.practice.company.codility.test.hard;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static com.comprehensive.practice.company.codility.test.hard.LargestSubString.getUniqueCharacterSubstringBruteForce;
 import static com.comprehensive.practice.company.codility.test.hard.LargestSubString.getUniqueCharacterSubstring;
+import static com.comprehensive.practice.company.codility.test.hard.LargestSubString.getUniqueCharacterSubstringBruteForce;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LargestSubStringTest {
 
     @Test

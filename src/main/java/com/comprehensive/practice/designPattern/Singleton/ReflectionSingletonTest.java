@@ -1,7 +1,6 @@
 package com.comprehensive.practice.designPattern.Singleton;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 
 public class ReflectionSingletonTest {
 

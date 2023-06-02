@@ -1,11 +1,8 @@
 package com.comprehensive.practice.company.codility.test.copyAndWriteArrayList;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author Crunchify.com
