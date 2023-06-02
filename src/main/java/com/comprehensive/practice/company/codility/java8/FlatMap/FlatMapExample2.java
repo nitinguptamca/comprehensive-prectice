@@ -2,11 +2,10 @@ package com.comprehensive.practice.company.codility.java8.FlatMap;
 
 
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Stream<String[]>      -> flatMap ->	Stream<String>  <br>
@@ -23,13 +22,13 @@ public class FlatMapExample2 {
         Map<String ,String> map = new LinkedHashMap<>();
         map.put("k2","k2");  map.put("k1","k1");
         map.get("k1");
-        /*
+
             Stream<List<LineItem>> listStream = orders.stream()
                     .map(order -> order.getLineItems());
 
             Stream<LineItem> lineItemStream = orders.stream()
                     .flatMap(order -> order.getLineItems().stream());
-        */
+
 
         // sum the line items' total amount
         BigDecimal sumOfLineItems = orders.stream()
@@ -48,6 +47,7 @@ public class FlatMapExample2 {
         if (!sumOfOrder.equals(sumOfLineItems)) {
             System.out.println("The sumOfOrder is not equals to sumOfLineItems!");
         }
+
 
     }
 
