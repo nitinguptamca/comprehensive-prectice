@@ -12,7 +12,8 @@ public class ReverseStringUsingRecursion {
     public static void main1(String[] args) {
         String str = "abc";
         StringBuilder sb  = new StringBuilder("");
-        ReverseStringUsingRecursion recursion = new ReverseStringUsingRecursion();
+        ReverseStringUsingRecursion recursion =
+                new ReverseStringUsingRecursion();
         recursion.getReverseString(str, sb, str.length()-1);
         System.out.println("reverse:   "+ sb);
     }

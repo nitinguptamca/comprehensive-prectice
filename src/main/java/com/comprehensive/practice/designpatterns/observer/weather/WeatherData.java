@@ -24,13 +24,14 @@ public class WeatherData implements Subject {
 		}
 	}
 
+
 	@Override
-	public void registerObserver(com.designpatterns.observer.weather.Observer o) {
+	public void registerObserver(com.comprehensive.practice.designpatterns.observer.weather.Observer o) {
 
 	}
 
 	@Override
-	public void removeObserver(com.designpatterns.observer.weather.Observer o) {
+	public void removeObserver(com.comprehensive.practice.designpatterns.observer.weather.Observer o) {
 
 	}
 

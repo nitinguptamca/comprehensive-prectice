@@ -1,4 +1,4 @@
-package com.comprehensive.practice.company.codility.coreJava;
+package com.comprehensive.practice.coreJava;
 
 /**
  * A local inner class without name is known as anonymous inner class. An anonymous class is defined and instantiated in a single statement. Anonymous inner class always extend a class or implement an interface. Since an anonymous class has no name, it is not possible to define a constructor for an anonymous class
