@@ -48,6 +48,13 @@ public class WordCountParticularFile {
                 .stream()
                 .collect(Collectors.groupingBy(Function.identity(),
                         Collectors.counting()));
+
+
+        Map<String, Long> ssss = value
+                .flatMap(e -> e.lines().map(k -> k.trim().split(" ")))
+                .flatMap(Stream::of)
+                .collect(Collectors.groupingBy(Function.identity(),
+                        Collectors.counting()));
     }
 
     public static void main22(String[] args) throws IOException {
@@ -62,6 +69,7 @@ public class WordCountParticularFile {
     public static void main(String[] args) throws IOException {
         Path path= Paths.get("D:\\roomno13\\comprehensive-prectice\\src\\main\\java\\com\\comprehensive\\practice\\company\\codility\\test\\easy\\ArrayListTest.java");
         Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8);
+        String stringArray = lines.collect(Collectors.joining(System.lineSeparator()));
 
 
     }
