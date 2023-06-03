@@ -1,4 +1,4 @@
-package com.comprehensive.practice.company.codility.java8;
+package com.comprehensive.practice.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

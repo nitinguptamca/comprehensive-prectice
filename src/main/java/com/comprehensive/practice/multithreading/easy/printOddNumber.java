@@ -24,7 +24,7 @@ public class printOddNumber {
 
     // Function to print even numbers
     public void printEvenNumber() {
-        synchronized (this) {
+       synchronized (this) {
             while (counter < N) {
                 while (counter % 2 == 1) {
                     // Exception handle
@@ -46,7 +46,7 @@ public class printOddNumber {
     // Driver Code
     public static void main(String[] args) {
         // Given Number N
-        N = 10;
+        N = 20;
 
         // Create an object of class
         printOddNumber mt = new printOddNumber();

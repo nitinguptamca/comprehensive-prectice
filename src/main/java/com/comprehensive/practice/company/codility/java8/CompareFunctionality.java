@@ -1,5 +1,6 @@
 package com.comprehensive.practice.company.codility.java8;
 
+import com.comprehensive.practice.bean.Employee;
 import com.comprehensive.practice.bean.People;
 import com.comprehensive.practice.utility.ReadFileUtility;
 
