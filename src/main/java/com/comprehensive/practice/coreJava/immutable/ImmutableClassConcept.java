@@ -1,5 +1,7 @@
 package com.comprehensive.practice.coreJava.immutable;
 
+import java.io.Closeable;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Collections;
@@ -20,7 +22,7 @@ import java.util.List;
  * </li>
  * </ol>
  */
-public class ImmutableClassConcept {
+public class ImmutableClassConcept implements Closeable {
     private final Long id;
     private final BigDecimal amount;
     private final Instant timestamp;
@@ -57,5 +59,10 @@ public class ImmutableClassConcept {
                 ", timestamp=" + timestamp +
                 ", personList=" + personList +
                 '}';
+    }
+
+    @Override
+    public void close() throws IOException {
+
     }
 }

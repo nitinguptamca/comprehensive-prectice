@@ -6,9 +6,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -16,6 +18,15 @@ public class WordCountParticularFile {
     public static void main111(String[] args) throws IOException {
         WordCountParticularFile particularFile = new WordCountParticularFile();
         Path path = Paths.get("D:\\roomno13\\comprehensive-prectice\\src\\main\\java\\com\\comprehensive\\practice\\datastructure\\bst\\ps0\\BinarySearchTree.java");
+        Stream<String> flatMapString = Files.lines(path);
+        Map<String, Long> sfasfs = flatMapString.flatMap(lines -> lines.lines()
+                        .map(line -> line.split(" ")))
+                .flatMap(Stream::of).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+       Path path1=  Paths.get("hajkhfdsaf");
+       Files.lines(path1).flatMap( line ->line.lines().map( e ->e.split(" ")))
+               .flatMap(Stream::of).collect(Collectors.groupingBy(Function.identity() , LinkedHashMap::new ,Collectors.counting()));
+
         Map<String, Long> sssss = particularFile.wordCount(path);
         System.out.println(sssss);
 

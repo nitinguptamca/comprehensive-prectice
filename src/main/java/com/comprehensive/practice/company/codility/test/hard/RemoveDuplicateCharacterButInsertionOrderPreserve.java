@@ -13,16 +13,21 @@ import java.util.stream.Stream;
  */
 public class RemoveDuplicateCharacterButInsertionOrderPreserve {
     public static void main(String[] args) {
-        String input ="abcdefghjxabsadgerxkljdsafiy";
+        String input = "abcdefghjxabsadgerxkljdsafiy";
         String removeDuplicate = input.chars().mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(
                         Function.identity(), LinkedHashMap::new, Collectors.counting()
                 )).entrySet().stream().map(e -> e.getKey())
                 .reduce("", (a, b) -> a + b, (s1, s2) -> s1 + s2);
-        System.out.println("\n remove duplicate "+ removeDuplicate);
 
 
-        IntStream ssss = input.codePoints();
+        String ssss1111 = input.chars().mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(
+                        Function.identity(), LinkedHashMap::new, Collectors.counting()
+                )).entrySet().stream().map(e -> String.valueOf(e.getKey()))
+                .collect(Collectors.joining());
+        System.out.println("\n remove duplicate " + removeDuplicate);
+        
         IntStream ssss1 = input.chars();
         Stream<Character> characterStream2
                 = input.codePoints().mapToObj(c -> (char) c);

@@ -4,12 +4,29 @@ import com.comprehensive.practice.bean.Employee;
 import com.comprehensive.practice.bean.People;
 import com.comprehensive.practice.utility.ReadFileUtility;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class CompareFunctionality {
+
     public static void main(String[] args) {
+        List<People> peoples = getPeople();
+        int nanoseconds = Instant.now().getNano();
+        Map<Integer, List<People>> bbbb = peoples.parallelStream().collect(Collectors.groupingBy(People::getIndex));
+        int nanoseconds2 = Instant.now().getNano();
+        System.out.println(nanoseconds2 - nanoseconds);
+
+    }
+    public static void main123(String[] args) {
         List<People> peopleList =getPeople();
+
+        peopleList.stream().sorted
+                (Comparator.comparing(People::getLastName ,
+                        Comparator.nullsLast(String::compareTo))
+                        .reversed())
+                .collect(Collectors.toUnmodifiableList());
 
         peopleList.stream().sorted(Comparator.comparing(People::getLastName)
                 .thenComparing(People::getFirstName)
@@ -18,25 +35,33 @@ public class CompareFunctionality {
                 .limit(10)
                 .collect(Collectors.toList());
 
+
+        peopleList.stream().sorted(Comparator.comparing(People::getLastName)
+                        .thenComparing(People::getFirstName)
+                        .thenComparing(People::getEmail,
+                                Comparator.nullsLast(String.CASE_INSENSITIVE_ORDER)))
+                .limit(10)
+                .collect(Collectors.toList());
+
+
         Comparator<People> peopleComparator = (p1, p2) -> p1.getDateOfBirth()
                 .compareTo(p2.getDateOfBirth());
 
-              /*  List<People> value = peopleList.stream()
+        peopleList.stream().sorted((p1 ,p2) ->
+            p1.getEmail().compareTo(p2.getEmail()))
+                .collect(Collectors.toList());
+
+               List<People> value = peopleList.stream()
                 .sorted(Comparator.comparingInt(People::getIndex)
                         .thenComparing(People::getSex)
                 )
                 .limit(10)
                 .collect(Collectors.toList());
-*/
-               // value=peopleList.stream()
-                        //.sorted(
-                      //  (s1,s2) -> s1.getDateOfBirth().compareTo(s2.getDateOfBirth()))
-                       // .sorted(People::getDateOfBirth, Comparator.nullsLast(Comparator.reverseOrder()))
-                         //       .limit(10)
-                        //                .collect(Collectors.toList());
 
-        List<People> value = peopleList.stream()
-                .sorted(Comparator.comparing(People::getDateOfBirth, Comparator.nullsLast(Comparator.reverseOrder())))
+
+        List<People> value1 = peopleList.stream()
+                .sorted(Comparator.comparing(People::getDateOfBirth,
+                        Comparator.nullsLast(Comparator.reverseOrder())))
                 .limit(1000).collect(Collectors.toList());
 
         peopleList.stream().sorted(Comparator.nullsLast(

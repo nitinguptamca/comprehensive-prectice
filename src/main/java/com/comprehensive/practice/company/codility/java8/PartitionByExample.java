@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,15 +43,30 @@ public class PartitionByExample {
         return employeesList;
     }
 
-    public static void main(String[] args) {
-        Map<Boolean, List<Employee>> ssss = getEmployeeList().stream().
-                collect(Collectors.groupingBy(employee -> Math.ceil(employee.getSalary()%100) > 300, toList()));
-        System.out.println(ssss);
+    public static void main11(String[] args) {
+       getEmployeeList().stream().
+                collect(Collectors.groupingBy( Employee::getSalary));
 
-        Map<Employee, List<Employee>> result = getEmployeeList().stream()
-                .sorted(Comparator.comparingDouble(Employee::getSalary).reversed())
-                .collect(groupingBy(Employee::getSalary, LinkedHashMap::new, toList()))
-                .values().stream()
-                .collect(toMap(l -> l.get(0), Function.identity()));
+    }
+
+    public static void main(String[] args)
+    {
+        // creating an Integer stream
+        Stream<Integer>
+                s = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        // using Collectors partitioningBy()
+        // method to split the stream of elements into
+        // 2 parts, greater than 3 and less than 3.
+        Map<Boolean, List<Integer> >
+                map = s.collect(
+                Collectors.partitioningBy(num -> num %3==0));
+
+        // Displaying the result as a map
+        // true if greater than 3, false otherwise
+        System.out.println("Elements in stream "
+                + "partitioned by "
+                + "less than equal to 3: \n"
+                + map);
     }
 }

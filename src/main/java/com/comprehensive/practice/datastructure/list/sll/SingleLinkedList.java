@@ -228,11 +228,13 @@ public class SingleLinkedList<E extends Comparable<E>> {
             Node<E> whenFoundFirstNode = head.next;
             head=whenFoundFirstNode;
         } else {
+            top:
             while (tmp != null) {
                 Node<E> ptr = tmp.next;
-                while(ptr!=null){
+                if(ptr!=null){
                     if(ptr.element.compareTo(element)==0){
                         tmp.next=tmp.next.next;
+                        break top;
                     }
                 }
                 tmp = tmp.next;
@@ -366,6 +368,9 @@ class Testing {
         sll.addAtFirst(50);
         sll.addAtFirst(60);
         sll.addAtFirst(170);
+        sll.delete1(40);
+
+
        /* sll.addAtFirst(108);
         sll.addAtLast(109);
         sll.addAtLast(10);

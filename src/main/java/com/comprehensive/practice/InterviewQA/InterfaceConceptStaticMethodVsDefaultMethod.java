@@ -69,6 +69,28 @@ class TestingCar implements Vehicle{
     }
 }
 
+class Car1 implements Vehicle {
+
+    @Override
+    public String getBrand() {
+        return null;
+    }
+
+    @Override
+    public String speedUp() {
+        return null;
+    }
+
+    @Override
+    public String slowDown() {
+        return null;
+    }
+
+    @Override
+    public String turnAlarmOn() {
+        return Vehicle.super.turnAlarmOn();
+    }
+}
 class Car implements Vehicle,Alarm {
 
     private String brand;

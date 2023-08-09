@@ -38,7 +38,7 @@ public class DijkstraAlgorithm {
 			}
 		}
 	}
-	
+
 	public List<Vertex> getShortestPathTo(Vertex targetVertex) {
 		
 		List<Vertex> path = new ArrayList<>();

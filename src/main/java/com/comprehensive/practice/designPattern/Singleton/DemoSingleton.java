@@ -22,7 +22,7 @@ public class DemoSingleton implements Serializable {
     }
 
     protected Object readResolve() {
-        return getInstance();
+        return getInstance( );
     }
 
     @Override

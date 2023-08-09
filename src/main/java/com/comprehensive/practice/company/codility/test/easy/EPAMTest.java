@@ -23,5 +23,6 @@ public class EPAMTest {
                  .filter(e -> e.getKey().length() < 5)
                  .distinct()
                  .map(e -> e.getKey()).forEach(System.out::println);
+
      }
 }

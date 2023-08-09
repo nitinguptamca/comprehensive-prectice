@@ -19,7 +19,7 @@ public class ConvertStreamOfCharToString {
                 StringBuilder::toString));
 
         Stream<Character> st = Stream.of('C','h','t');
-        String result1 = st.map(c->c.toString()).collect(Collectors.joining());
+        String result1 = st.map(c->String.valueOf(c)).collect(Collectors.joining());
         System.out.println(result1);  //Cht
     }
 

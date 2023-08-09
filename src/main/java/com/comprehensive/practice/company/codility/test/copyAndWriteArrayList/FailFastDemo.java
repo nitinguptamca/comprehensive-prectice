@@ -8,7 +8,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class FailFastDemo {
 
-    public static void main(String[] args) {
+    public static void main232(String[] args) {
         CopyOnWriteArrayList<String> list1 = new CopyOnWriteArrayList<>();
         list1.add("Apple");
         list1.add("Banana");
@@ -18,7 +18,7 @@ public class FailFastDemo {
         System.out.println(list1);
     }
 
-    public static void main11(String[] args) {
+    public static void main(String[] args) {
         List<String> numList = new CopyOnWriteArrayList<>();
         numList.add("1");
         numList.add("2");

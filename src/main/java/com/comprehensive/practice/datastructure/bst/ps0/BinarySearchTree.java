@@ -134,11 +134,13 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public Node<T> getMax(Node<T> node) {
+
         return node.rightChild==null ?node:getMax(node.rightChild);
     }
 
     public Node<T> getMin(Node<T> node) {
-        return node.leftChild==null ? node: getMin(node.leftChild);
+        return node.leftChild==null ?
+                node: getMin(node.leftChild);
     }
     public boolean  isStructureSame(Node<Integer> a, Node<Integer> b) {
         if(a==null && b==null) return true;
@@ -173,6 +175,44 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
         return node;
     }
+
+
+   public Node<T> kthSmallestNodePr23(Node<T> node ,int k){
+        if(node==null) return null;
+        int count =0;
+        Node<T> current = node;
+        while(current!=null){
+            if(current.leftChild==null){
+             count++;
+             if(count==k) return current;
+             current=current.rightChild;
+            }else{
+                Node<T> left = current.leftChild;
+                while (left.rightChild!=null | left.rightChild!=current) left=left.rightChild;
+                if(left.rightChild==null){
+                    left.rightChild=current;
+                    current=current.leftChild;
+                }else {
+                    left.rightChild=null;
+                    count++;
+                    if(count==k) return current;
+                    current=current.rightChild;
+                }
+            }
+        }
+        return current;
+   }
+
+   int leftcount=0;
+    public Node<T> kthSmallesdsfsPr4stNode(Node<T> node,int k){
+        if(node==null) return null;
+        Node<T> left = kthSmallesdsfsPr4stNode(node.leftChild ,k);
+        if(left!=null) left=left;
+        leftcount++;
+        if(leftcount==k) return node;
+        return kthSmallesdsfsPr4stNode(node.rightChild ,k);
+    }
+
 
 
     public Node<T> KthSmallestNode(Node<T> node ,int k){

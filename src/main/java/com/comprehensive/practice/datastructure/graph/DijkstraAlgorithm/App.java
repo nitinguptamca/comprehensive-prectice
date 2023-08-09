@@ -39,6 +39,6 @@ public class App {
 			DijkstraAlgorithm algorithm = new DijkstraAlgorithm();
 			algorithm.computePath(a);
 			
-			System.out.println(algorithm.getShortestPathTo(d));
+			System.out.println(algorithm.getShortestPathTo(a));
 	}
 }

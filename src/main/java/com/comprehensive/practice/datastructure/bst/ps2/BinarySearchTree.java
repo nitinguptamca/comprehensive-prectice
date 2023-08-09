@@ -332,7 +332,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 			}
 		}
 	}
-
+   ////left-right-root
 	public void postOrderTraversalnotRequesive(Node<T> node) {
 		if (node==null) return;
 		Stack<Node<T>> stack = new Stack<>();
