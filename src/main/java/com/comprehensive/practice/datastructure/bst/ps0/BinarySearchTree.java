@@ -1,5 +1,7 @@
 package com.comprehensive.practice.datastructure.bst.ps0;
 
+import lombok.Getter;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -19,12 +21,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
+    @Getter
     private Node<T> root;
     int count = 0;
-
-    public Node<T> getRoot() {
-        return root;
-    }
 
     public void addElement(T data) {
         if (root == null) {
