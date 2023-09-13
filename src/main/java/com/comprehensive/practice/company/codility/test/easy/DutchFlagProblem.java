@@ -12,7 +12,11 @@ import java.util.stream.Collectors;
  */
 public class DutchFlagProblem {
     static int[] array = new int[]{2, 1, 2, 2, 1, 2, 1, 0, 1, 0};
-    public static void main(String[] args) {
+
+
+
+
+    public static void main11(String[] args) {
         sortThArray( array);
         System.out.println(Arrays.toString(array));
         Arrays.stream(array).sorted().boxed().collect(Collectors.toList());

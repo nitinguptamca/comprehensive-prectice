@@ -176,6 +176,19 @@ public class DoublyLinkedList<T extends Comparable<T>> {
         }
     }
 
+    public void  deleteNode1(Node<T> node){
+        if(node.next==null){
+            tail=node;
+        } else if (node.prev==null) {
+            head=node;
+        }else {
+            Node<T> nodePrev = node.prev;
+            Node<T> nodeNext= node.next;
+            nodePrev.next=nodeNext;
+            nodeNext.prev=nodePrev;
+        }
+    }
+
     private void deleteNode(Node<T> node) {
         if (node.next == null) {
             tail = node;

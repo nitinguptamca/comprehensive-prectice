@@ -6,12 +6,17 @@ import com.comprehensive.practice.utility.ReadFileUtility;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 public class CompareFunctionality {
 
-    public static void main(String[] args) {
+    public static void main123(String[] args) {
         List<People> peoples = getPeople();
         int nanoseconds = Instant.now().getNano();
         Map<Integer, List<People>> bbbb = peoples.parallelStream().collect(Collectors.groupingBy(People::getIndex));
@@ -19,21 +24,72 @@ public class CompareFunctionality {
         System.out.println(nanoseconds2 - nanoseconds);
 
     }
-    public static void main123(String[] args) {
+    public static void main(String[] args) {
         List<People> peopleList =getPeople();
 
-        peopleList.stream().sorted
-                (Comparator.comparing(People::getLastName ,
-                        Comparator.nullsLast(String::compareTo))
-                        .reversed())
+        String[]  strArray = {"we","a","apple","aggro","o","i","h","gh","df","qasw","re","cd","mbvn","rt"};
+
+
+        //Arrays.stream(strArray).sorted(String::compareTo).collect(Collectors.toList());
+        TreeMap<Character, String> ssss = Arrays.stream(strArray)
+                .collect(Collectors.toMap(aaa -> aaa.charAt(0), a ->a ,
+                        (existing, replacement) -> existing, TreeMap::new));
+        Map<Character, List<String>> kkkkk = Arrays
+                .stream(strArray)
+                .sorted(String::compareTo)
+                .collect(Collectors.groupingBy(a -> a.charAt(0) ,toList()));
+
+        Arrays
+                .stream(strArray)
+                .sorted(String::compareTo)
+                .collect(Collectors.groupingBy(a -> a.charAt(0) ,toSet()));
+
+        Map<Object, List<String>> sssssss = Arrays
+                .stream(strArray)
+                .sorted(String::compareTo)
+                .collect(Collectors.groupingBy(a -> a.charAt(0), toList()));
+
+        List<String> items =
+                Arrays.asList("apple", "apple", "banana",
+                        "apple", "orange", "banana", "papaya");
+
+        Map<String, Long> result =
+                items.stream().collect(
+                        Collectors.groupingBy(
+                                Function.identity(), Collectors.counting()
+                        )
+                );
+
+        Map finalMap = new HashMap<>();
+        result.entrySet().stream()
+                .sorted(Map.Entry.<String, Long>comparingByValue()
+                        .reversed()).forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
+
+        System.out.println(finalMap);
+
+
+        List<People> hjsfdkhskhfkds = peopleList.stream().sorted
+                        (Comparator.comparing(People::getLastName,
+                                        Comparator.nullsLast(String::compareTo))
+                                .reversed())
                 .collect(Collectors.toUnmodifiableList());
+        System.out.println(hjsfdkhskhfkds);
+
+        peopleList.stream().sorted( Comparator.comparing(People::getDateOfBirth ,Comparator.nullsLast(LocalDate::compareTo)).reversed()).collect(toList());
+        peopleList.stream().sorted(Collections.reverseOrder(Comparator.comparing(People::getDateOfBirth ,Comparator.nullsFirst(LocalDate::compareTo)))).collect(toList());
 
         peopleList.stream().sorted(Comparator.comparing(People::getLastName)
                 .thenComparing(People::getFirstName)
                 .thenComparing(People::getEmail,
                         Comparator.nullsLast(String.CASE_INSENSITIVE_ORDER)))
                 .limit(10)
-                .collect(Collectors.toList());
+                .collect(toList());
+
+        peopleList.stream().sorted(Comparator.comparing(People::getFirstName)
+                .thenComparing(People::getLastName)
+                .thenComparing(People::getDateOfBirth , Comparator.nullsFirst(LocalDate::compareTo))
+                .reversed()
+        ).limit(10).collect(toList());
 
 
         peopleList.stream().sorted(Comparator.comparing(People::getLastName)
@@ -41,7 +97,7 @@ public class CompareFunctionality {
                         .thenComparing(People::getEmail,
                                 Comparator.nullsLast(String.CASE_INSENSITIVE_ORDER)))
                 .limit(10)
-                .collect(Collectors.toList());
+                .collect(toList());
 
 
         Comparator<People> peopleComparator = (p1, p2) -> p1.getDateOfBirth()
@@ -49,24 +105,24 @@ public class CompareFunctionality {
 
         peopleList.stream().sorted((p1 ,p2) ->
             p1.getEmail().compareTo(p2.getEmail()))
-                .collect(Collectors.toList());
+                .collect(toList());
 
                List<People> value = peopleList.stream()
                 .sorted(Comparator.comparingInt(People::getIndex)
                         .thenComparing(People::getSex)
                 )
                 .limit(10)
-                .collect(Collectors.toList());
+                .collect(toList());
 
 
         List<People> value1 = peopleList.stream()
                 .sorted(Comparator.comparing(People::getDateOfBirth,
                         Comparator.nullsLast(Comparator.reverseOrder())))
-                .limit(1000).collect(Collectors.toList());
+                .limit(1000).collect(toList());
 
         peopleList.stream().sorted(Comparator.nullsLast(
                 (s1,s2) ->s1.getDateOfBirth().compareTo(s2.getDateOfBirth())
-        )).collect(Collectors.toList());
+        )).collect(toList());
 
         System.out.println(value);
     }
@@ -126,8 +182,13 @@ class ApplyOperationEmployee {
                 else return 1;
             } else if (e1.getAge() > e2.getAge()) return 1;
             else return -1;
-        }).collect(Collectors.toList());
+        }).collect(toList());
         System.out.println(ssss);
+
+        List<Employee> kkkkkk = employees.stream().sorted(
+                Comparator.comparing(Employee::getAge)
+                        .thenComparing(Employee::getSalary)
+        ).collect(toList());
     }
 
 
@@ -143,7 +204,7 @@ class ApplyOperationEmployee {
                 // option1   //.sorted(Comparator.comparing(Employee::getSalary ,Comparator.nullsFirst(Comparator.reverseOrder())))
                 .sorted(Comparator.comparingDouble(Employee::getSalary).reversed())
                 .limit(3)
-                .collect(Collectors.toList());
+                .collect(toList());
         System.out.println(listsored);
 
         List<Employee> sortedList = listsored.stream()
@@ -154,14 +215,14 @@ class ApplyOperationEmployee {
                         return 1;
                     else return -1;
                 })
-                .collect(Collectors.toList());
+                .collect(toList());
 
         List<String> list = Arrays.asList("John", "Mark", "Robert", "Lucas", "Brandon");
-        List<String> sortedList1 = list.stream().sorted().collect(Collectors.toList());
+        List<String> sortedList1 = list.stream().sorted().collect(toList());
 
         sortedList1 = list.stream()
                 .sorted(Collections.reverseOrder())
-                .collect(Collectors.toList());
+                .collect(toList());
         listsored.sort(Comparator.comparing(Employee::getAge, Comparator.nullsLast(Comparator.naturalOrder())));
         listsored.sort(Comparator.comparing(Employee::getAge, Comparator.nullsLast(Comparator.reverseOrder())));
 

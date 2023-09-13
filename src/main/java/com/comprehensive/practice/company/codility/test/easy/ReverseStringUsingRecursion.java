@@ -42,11 +42,13 @@ public class ReverseStringUsingRecursion {
     }
 
     public static String strrev(String str) {
+
         return !str.equals("") ? strrev(str.substring(1)) + str.charAt(0) : str;
     }
 
     public String reverseStr(String str){
-        return  !str.equals("")? reverseStr(str.substring(1))+str.charAt(0): str;
+        return  !str.equals("")?
+                reverseStr(str.substring(1))+str.charAt(0): str;
     }
    static String reverse(String stringToReverse, int index){
         if(index == 0){

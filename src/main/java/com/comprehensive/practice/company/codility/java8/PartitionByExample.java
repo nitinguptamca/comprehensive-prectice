@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -54,6 +55,7 @@ public class PartitionByExample {
         // creating an Integer stream
         Stream<Integer>
                 s = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
 
         // using Collectors partitioningBy()
         // method to split the stream of elements into

@@ -3,8 +3,10 @@ package com.comprehensive.practice.company.codility.test.easy;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  *  * find out elements ,who have length is less than 5 characters
@@ -23,6 +25,13 @@ public class EPAMTest {
                  .filter(e -> e.getKey().length() < 5)
                  .distinct()
                  .map(e -> e.getKey()).forEach(System.out::println);
+
+        Arrays.stream(str.split(" "))
+                 .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                 .entrySet().stream().filter(vv -> vv.getValue() < 5)
+                 .distinct()
+                .map(Map.Entry::getKey).collect(Collectors.toList());
+
 
      }
 }

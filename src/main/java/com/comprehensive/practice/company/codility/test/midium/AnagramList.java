@@ -18,6 +18,8 @@ public class AnagramList {
                 .distinct()
                 .count() == 1;
         System.out.println(count);
+        boolean kkkk = Stream.of(strArr).map(String::toCharArray).peek(Arrays::sort)
+                .distinct().count() == 1;
 
         boolean solution1 = Stream.of(strArr) // Stream<String>
                 .map(String::toCharArray) // Stream<char[]>

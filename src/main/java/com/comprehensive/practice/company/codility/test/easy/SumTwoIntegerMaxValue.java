@@ -11,14 +11,18 @@ public class SumTwoIntegerMaxValue {
     public static void main(String[] args) {
         String s1 = String.valueOf(Integer.MAX_VALUE);
         String s2 = String.valueOf(Integer.MAX_VALUE);
+        System.out.println("\n s1"+ s1);
         SumTwoIntegerMaxValue sumTwoIntegerMaxValue = new SumTwoIntegerMaxValue();
         String s3 = sumTwoIntegerMaxValue.getResult(s1 ,s2);
         System.out.println(s3);
+
+        listFileTree1();
     }
     
     public String getResult(String s1 , String s2){
         int a = Integer.valueOf(s1);
         int b = Integer.valueOf(s2);
+        System.out.println("a+b " + (a+b));
         int c = Integer.MAX_VALUE;
         return  ""+(a + b+ c);
     }

@@ -54,6 +54,7 @@ public class ReverseString {
 
 
         String s = "blast";
+
         IntStream.range(0, s.length()).           // create index [0 .. s.length - 1]
                // s.chars().
                 boxed().                               // the next step requires them boxed
@@ -63,6 +64,8 @@ public class ReverseString {
 
         String kk= s.chars().mapToObj( c -> Character.valueOf((char)c)).reduce("", (a,b) -> b+a ,(s1,s2) -> s2+s1);
         kk= s.chars().mapToObj( c -> (char)c).reduce("", (a,b) -> b+a ,(s1,s2) -> s2+s1);
+     ////   kk= s.chars().mapToObj( c -> (char)c).reduce("", (a,b) -> b+a );
+
         System.out.println(kk);
 
     }
@@ -72,5 +75,7 @@ public class ReverseString {
         IntStream.range(0, charArray.length)
                 .mapToObj(i -> charArray[(charArray.length - 1) - i])
                 .forEach(System.out::print);
+        String ssss = "sfdsf".chars().mapToObj(c -> (char) c).sorted(Collections.reverseOrder()).map(String::valueOf)
+                .collect(Collectors.joining());
     }
 }

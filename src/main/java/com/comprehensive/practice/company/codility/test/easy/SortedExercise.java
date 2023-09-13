@@ -44,7 +44,7 @@ public class SortedExercise {
            users.add(new User(Integer.parseInt(logs[i][0]), logs[i][1],logs[i][2]));
        }
         return  users.stream().sorted(
-                Comparator.comparingInt(User::getSessionTime).thenComparing(User::getUserid)
+                Comparator.comparingInt(User::getSessionTime).thenComparing(User::getUserid).reversed()
         ).collect(Collectors.toUnmodifiableList());
     }
 }

@@ -6,6 +6,7 @@ public class AnagramTest {
     public static void main(String[] args) {
         String s1="abcdef";
         String s2 ="fedcba";
+        Arrays.sort(s1.toCharArray());
       //  System.out.println(isAnagram(s1 ,s2));
         char[] a1 = s1.toCharArray();
         char[] a2 =s2.toCharArray();

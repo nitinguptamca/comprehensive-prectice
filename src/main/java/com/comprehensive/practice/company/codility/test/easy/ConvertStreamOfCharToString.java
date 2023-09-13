@@ -12,6 +12,8 @@ public class ConvertStreamOfCharToString {
     public static void main(String[] args) {
         Stream<Character> testStream = Stream.of('a', 'b', 'c');
 
+        testStream.map(c ->String.valueOf(c)).collect(Collectors.joining());
+
         String result = testStream.collect(Collector.of(
                 StringBuilder::new,
                 StringBuilder::append,

@@ -21,7 +21,7 @@ public class ReadFileUtility {
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             try (InputStream inputStream = getClass().getClassLoader()
-                    .getResourceAsStream("people-1000.csv")) {
+                    .getResourceAsStream("people-10.csv")) {
                 BufferedReader br = new BufferedReader(
                         new InputStreamReader(inputStream, StandardCharsets.UTF_8));
                 String line;

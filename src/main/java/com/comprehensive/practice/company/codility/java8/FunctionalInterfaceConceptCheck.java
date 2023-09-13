@@ -59,7 +59,8 @@ public class FunctionalInterfaceConceptCheck {
         salaries.put("Freddy", 30000);
         salaries.put("Samuel", 50000);
 
-        salaries.replaceAll((name, oldValue) -> name.equals("Freddy") ? oldValue : oldValue + 10000);
+        salaries.replaceAll((name, oldValue) -> name.equals("Freddy") ?
+                oldValue : oldValue + 10000);
 
         int[] fibs = { 0, 1 };
         Stream<Integer> fibonacci = Stream.generate(() -> {
@@ -85,15 +86,18 @@ public class FunctionalInterfaceConceptCheck {
         names = Arrays.asList("Angela", "Aaron", "Bob", "Claire", "David");
         names.replaceAll(name -> name.toUpperCase());
         names.replaceAll(String::toUpperCase);
-        List<String> namesWithA = names.stream().filter(name -> name.startsWith("A")).collect(Collectors.toList());
+        List<String> namesWithA = names.stream().filter(name -> name.startsWith("A"))
+                .collect(Collectors.toList());
         List<Integer> values = Arrays.asList(3, 5, 8, 9, 12);
         values.stream().mapToInt(a -> a).sum();
         values.stream().mapToInt(Integer::intValue).sum();
         //// IntStream perfect valid scenario
 
         int[] intArray = IntStream.of(1, 2, 3, 4, 5).toArray();
-        List<Integer> ints = IntStream.of(1, 2, 3, 4, 5).mapToObj(Integer::valueOf).collect(Collectors.toList());
-        List<Integer> ints1 = IntStream.of(1, 2, 3, 4, 5).boxed().collect(Collectors.toList());
+        List<Integer> ints = IntStream.of(1, 2, 3, 4, 5)
+                .mapToObj(Integer::valueOf).collect(Collectors.toList());
+        List<Integer> ints1 = IntStream.of(1, 2, 3, 4, 5)
+                .boxed().collect(Collectors.toList());
 
         // ***********************
         int sum = values.stream().reduce(0, (i1, i2) -> i1 + i2);
