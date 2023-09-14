@@ -4,12 +4,17 @@ import com.comprehensive.practice.bean.Employee;
 import com.comprehensive.practice.bean.People;
 import com.comprehensive.practice.utility.ReadFileUtility;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
@@ -175,7 +180,19 @@ class ApplyOperationEmployee {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        String sss = "uiwyqwieryq";
+        Map<Character, List<Character>> ssssss = sss.chars().mapToObj(d -> (char) d).collect(Collectors.groupingBy(Function.identity()));
+
+        Path path = Paths.get("/Users/nitinguptamca/github/comprehensive-prectice/src/main/java/com/comprehensive/practice/company/codility/java8/FlatMap/Order.java");
+        Stream<String> lines = Files.lines(path);
+        Map<String, Long> hhh = lines.flatMap(line -> line.lines().map(e -> e.split(" "))).flatMap(Stream::of).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        System.out.println(hhh);
+
+    }
+
+    public static void main12313(String[] args) {
         List<Employee> ssss = employees.stream().sorted((e1, e2) -> {
             if (e1.getAge() == e2.getAge()) {
                 if (e1.getSalary() > e2.getSalary()) return -1;

@@ -19,6 +19,12 @@ public class FindMaxSubArray {
     static int[]  Input = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
     public static void main(String[] args) {
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+      // Integer a = Integer.MIN_VALUE +Integer.MAX_VALUE;
+     //   System.out.println("  "+Integer.MAX_VALUE);
+      //  System.out.println("   " + Integer.MIN_VALUE);
+     //  int  a111 = - (Integer.MIN_VALUE +1000);
+      //  System.out.println(Integer.MAX_VALUE +Integer.MAX_VALUE+Integer.MAX_VALUE);
+        //
         System.out.println(findMaxSubarraySum(nums));
     }
 
