@@ -180,15 +180,21 @@ class ApplyOperationEmployee {
 
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         String sss = "uiwyqwieryq";
         Map<Character, List<Character>> ssssss = sss.chars().mapToObj(d -> (char) d).collect(Collectors.groupingBy(Function.identity()));
 
         Path path = Paths.get("/Users/nitinguptamca/github/comprehensive-prectice/src/main/java/com/comprehensive/practice/company/codility/java8/FlatMap/Order.java");
-        Stream<String> lines = Files.lines(path);
-        Map<String, Long> hhh = lines.flatMap(line -> line.lines().map(e -> e.split(" "))).flatMap(Stream::of).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        Map<String, Long> hhh;
+        Map<String, Long> hhh1;
+        try (Stream<String> lines = Files.lines(path)) {
 
-        System.out.println(hhh);
+            hhh = lines.flatMap(line -> line.lines().map(e -> e.split(" "))).flatMap(Arrays::stream).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+            hhh1 = lines.flatMap(line -> line.lines().map(e -> e.split(" "))).flatMap(Stream::of).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        }catch (IOException e){
+            e.getMessage();
+        }
+
 
     }
 

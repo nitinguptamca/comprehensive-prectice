@@ -50,6 +50,7 @@ public class CustomHashMapPr1 <K extends Comparable<K> , V>{
           Entry<K,V> newNode=   new Entry<>(key ,value,null);
           Entry<K,V> currentElement= table[hashCodeValue];
           Entry<K ,V> previous=null;
+
           while(currentElement!=null){
               if(currentElement.key.compareTo(key)==0){
                   if(previous==null){

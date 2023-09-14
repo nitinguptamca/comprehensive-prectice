@@ -37,7 +37,7 @@ public class App {
 			h.addNeighbor(new Edge(6, h, f));
 			
 			DijkstraAlgorithm algorithm = new DijkstraAlgorithm();
-			algorithm.computePath(a);
+			algorithm.computePath(b);
 			
 			System.out.println(algorithm.getShortestPathTo(a));
 	}

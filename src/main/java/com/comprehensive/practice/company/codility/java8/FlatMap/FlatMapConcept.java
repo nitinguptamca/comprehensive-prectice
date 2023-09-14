@@ -26,8 +26,11 @@ public class FlatMapConcept {
 
         List<Integer> flattenedList = listOfNumbers
                 .stream()
-                .flatMap(l -> l.stream())
+                //.flatMap(l -> l.stream())
+               // .flatMap(List::stream)
                 //.flatMap(Stream::of)
+                .flatMap(Collection::stream)
+                //.flatMap(Arrays::stream)
                 .collect(Collectors.toList());
 
         flattenedList = listOfNumbers

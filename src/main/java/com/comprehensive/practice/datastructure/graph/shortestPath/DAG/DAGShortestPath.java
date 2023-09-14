@@ -47,6 +47,7 @@ public class DAGShortestPath<T extends Comparable<T>> {
     }
 
     private Stack<Vertex<T>> stack;
+    private  Stack<Vertex<T>> stack1 = new Stack<>();
 
     public Stack<Vertex<T>> getStack() {
         return stack;
@@ -70,7 +71,7 @@ public class DAGShortestPath<T extends Comparable<T>> {
                 dfs(e.getTarget());
             }
         }
-        stack.add( vertex);
+        stack.push( vertex);
     }
 
     public void shortestPath(List<Vertex<T>> graph) {
@@ -104,13 +105,13 @@ class App {
         DAGShortestPath.Vertex<String>  d = new DAGShortestPath.Vertex<>("D");
         DAGShortestPath.Vertex<String>  e = new DAGShortestPath.Vertex<>("E");
         s.addNeighbour(new DAGShortestPath.Edge<>(a, 1));
-        s.addNeighbour(new DAGShortestPath.Edge<>(c, 2));
+        s.addNeighbour(new DAGShortestPath.Edge<>(c, 5));
         a.addNeighbour(new DAGShortestPath.Edge<>(b, 6));
-        b.addNeighbour(new DAGShortestPath.Edge<>(d, 1));
+        b.addNeighbour(new DAGShortestPath.Edge<>(d, 4));
         b.addNeighbour(new DAGShortestPath.Edge<>(e, 2));
-        c.addNeighbour(new DAGShortestPath.Edge<>(a, 4));
+        c.addNeighbour(new DAGShortestPath.Edge<>(a, 7));
         c.addNeighbour(new DAGShortestPath.Edge<>(d, 3));
-        d.addNeighbour(new DAGShortestPath.Edge<>(e, 1));
+        d.addNeighbour(new DAGShortestPath.Edge<>(e, 9));
 
         graph.add(s);
         graph.add(a);

@@ -50,13 +50,7 @@ public class CustomMap<K extends Comparable<K>,V> {
            Node<K,V> previous=null;
            while (current!=null){
                if(current.key.compareTo(key)==0){
-                   if(previous==null){
-                        newNode.next=current.next;
-                        table[hashCodeValue]=newNode;
-                   }else {
-                        newNode.next=current.next;
-                        previous.next=newNode;
-                   }
+                 current.value=value;
                }
                 previous=current;
                current=current.next;
@@ -115,13 +109,13 @@ public class CustomMap<K extends Comparable<K>,V> {
 
 class Testing{
     public static void main(String[] args) {
-        CustomMap<Integer ,Integer> chm= new CustomMap<>(4);
+        CustomMap<Integer ,Integer> chm= new CustomMap<>(3);
         chm.put(1, 1);
         chm.put(2, 3);
         chm.put(3, 2);
         chm.put(4, 4);
-        chm.put(5, 5);
-        chm.put(6, 7);
+        chm.put(1, 5);
+        chm.put(2, 7);
         chm.put(7, 8);
         chm.put(8, 9);
         chm.put(13, 9);
