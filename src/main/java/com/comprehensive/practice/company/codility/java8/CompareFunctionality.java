@@ -8,12 +8,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Array;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -21,15 +23,48 @@ import static java.util.stream.Collectors.toSet;
 
 public class CompareFunctionality {
 
+    public static void main(String[] args) {
+        String[] ssss ={"a","v","s","w","n"};
+        Arrays.stream(ssss).sorted(String::compareTo).collect(toList());
+    }
+
+    public static void mainqqqq(String[] args) {
+        Comparator<Integer>  intComp = Comparator.naturalOrder();
+        Comparator<Integer>  intcomp1 = (a ,b) -> a-b;
+        Comparator<Integer>  intcomp2 = (a ,b) -> a.compareTo(b);
+        Comparator<Integer>  intcomp3 = Integer::compareTo;
+        int[]  arr = {1,5,3,8,3,6,3};
+
+        List<Integer> dddddd = Arrays.stream(arr).sorted().boxed().collect(toList());
+        List<Integer> qqq = Arrays.stream(arr).boxed().sorted((a, b) -> Integer.compare(a, b)).collect(toList());
+        List<Integer> qqq11;
+        qqq11 = Arrays.stream(arr).boxed().sorted(Comparator.comparingInt(a -> a)).collect(toList());
+        List<Integer> jkfls = Arrays.stream(arr).sorted().boxed().collect(toList());
+        Arrays.stream(arr).boxed().sorted((a, b) -> a - b).collect(toList());
+        Arrays.stream(arr).boxed().sorted((a,b) -> a-b).collect(toList());
+        Arrays.stream(arr).boxed().sorted(intComp).collect(toList());
+        Arrays.stream(arr).boxed().sorted(Integer::compareTo).collect(toList());
+
+        Arrays.stream(arr).boxed().sorted((a,b) -> a.compareTo(b)).collect(toList());
+        Arrays.stream(arr).boxed().sorted(Collections.reverseOrder(Integer::compareTo)).collect(toList());
+        Arrays.stream(arr).boxed().sorted(intcomp1.reversed()).collect(toList());
+        Arrays.stream(arr).boxed().sorted(Comparator.naturalOrder()).collect(toList());
+        List<Integer> sssder = Arrays.stream(arr).boxed()
+                .sorted(Collections.reverseOrder(intcomp3)).collect(toList());
+    }
+
     public static void main123(String[] args) {
         List<People> peoples = getPeople();
         int nanoseconds = Instant.now().getNano();
         Map<Integer, List<People>> bbbb = peoples.parallelStream().collect(Collectors.groupingBy(People::getIndex));
         int nanoseconds2 = Instant.now().getNano();
         System.out.println(nanoseconds2 - nanoseconds);
+        peoples.stream().sorted(Comparator.comparing(People::getDateOfBirth).reversed()
+                .thenComparing(People::getEmail).reversed()
+        ).collect(toList());
 
     }
-    public static void main(String[] args) {
+    public static void main13131(String[] args) {
         List<People> peopleList =getPeople();
 
         String[]  strArray = {"we","a","apple","aggro","o","i","h","gh","df","qasw","re","cd","mbvn","rt"};
@@ -107,6 +142,14 @@ public class CompareFunctionality {
 
         Comparator<People> peopleComparator = (p1, p2) -> p1.getDateOfBirth()
                 .compareTo(p2.getDateOfBirth());
+
+        Comparator<Integer>  intComp = Comparator.naturalOrder();
+        int[]  arr = {1,5,3,8,3,6,3};
+        List<Integer> qqq = Arrays.stream(arr).boxed().sorted((a, b) -> Integer.compare(a, b)).collect(toList());
+        List<Integer> qqq11;
+        qqq11 = Arrays.stream(arr).boxed().sorted(Comparator.comparingInt(a -> a)).collect(toList());
+        List<Integer> jkfls = Arrays.stream(arr).sorted().boxed().collect(toList());
+        Arrays.stream(arr).boxed().sorted((a, b) -> a - b).collect(toList());
 
         peopleList.stream().sorted((p1 ,p2) ->
             p1.getEmail().compareTo(p2.getEmail()))
