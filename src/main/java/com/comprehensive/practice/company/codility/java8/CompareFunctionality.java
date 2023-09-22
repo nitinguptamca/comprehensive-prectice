@@ -114,7 +114,7 @@ public class CompareFunctionality {
         System.out.println(finalMap);
 
         peopleList.stream().sorted(Comparator.comparing(People::getJobTitle,
-                Comparator.nullsLast(String::compareTo)).reversed()).collect(toList())
+                Comparator.nullsLast(String::compareTo)).reversed()).collect(toList());
 
         List<People> hjsfdkhskhfkds = peopleList.stream().sorted
                         (Comparator.comparing(People::getLastName,
