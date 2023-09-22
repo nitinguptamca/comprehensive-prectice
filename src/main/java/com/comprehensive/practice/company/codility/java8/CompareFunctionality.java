@@ -26,19 +26,23 @@ public class CompareFunctionality {
     public static void main(String[] args) {
         String[] ssss ={"a","v","s","w","n"};
         Arrays.stream(ssss).sorted(String::compareTo).collect(toList());
+        Arrays.stream(ssss).sorted().collect(toList());
     }
 
     public static void mainqqqq(String[] args) {
         Comparator<Integer>  intComp = Comparator.naturalOrder();
+        Comparator<String>   strComp = String::compareTo;
         Comparator<Integer>  intcomp1 = (a ,b) -> a-b;
         Comparator<Integer>  intcomp2 = (a ,b) -> a.compareTo(b);
         Comparator<Integer>  intcomp3 = Integer::compareTo;
         int[]  arr = {1,5,3,8,3,6,3};
 
         List<Integer> dddddd = Arrays.stream(arr).sorted().boxed().collect(toList());
-        List<Integer> qqq = Arrays.stream(arr).boxed().sorted((a, b) -> Integer.compare(a, b)).collect(toList());
+        List<Integer> qqq = Arrays.stream(arr).boxed()
+                .sorted((a, b) -> Integer.compare(a, b)).collect(toList());
         List<Integer> qqq11;
         qqq11 = Arrays.stream(arr).boxed().sorted(Comparator.comparingInt(a -> a)).collect(toList());
+        Arrays.stream(arr).boxed().sorted(Integer::compareTo).collect(toList());
         List<Integer> jkfls = Arrays.stream(arr).sorted().boxed().collect(toList());
         Arrays.stream(arr).boxed().sorted((a, b) -> a - b).collect(toList());
         Arrays.stream(arr).boxed().sorted((a,b) -> a-b).collect(toList());
@@ -56,7 +60,8 @@ public class CompareFunctionality {
     public static void main123(String[] args) {
         List<People> peoples = getPeople();
         int nanoseconds = Instant.now().getNano();
-        Map<Integer, List<People>> bbbb = peoples.parallelStream().collect(Collectors.groupingBy(People::getIndex));
+        Map<Integer, List<People>> bbbb = peoples.parallelStream()
+                .collect(Collectors.groupingBy(People::getIndex));
         int nanoseconds2 = Instant.now().getNano();
         System.out.println(nanoseconds2 - nanoseconds);
         peoples.stream().sorted(Comparator.comparing(People::getDateOfBirth).reversed()
@@ -103,10 +108,13 @@ public class CompareFunctionality {
         Map finalMap = new HashMap<>();
         result.entrySet().stream()
                 .sorted(Map.Entry.<String, Long>comparingByValue()
-                        .reversed()).forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
+                        .reversed())
+                .forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
 
         System.out.println(finalMap);
 
+        peopleList.stream().sorted(Comparator.comparing(People::getJobTitle,
+                Comparator.nullsLast(String::compareTo)).reversed()).collect(toList())
 
         List<People> hjsfdkhskhfkds = peopleList.stream().sorted
                         (Comparator.comparing(People::getLastName,
@@ -115,8 +123,10 @@ public class CompareFunctionality {
                 .collect(Collectors.toUnmodifiableList());
         System.out.println(hjsfdkhskhfkds);
 
-        peopleList.stream().sorted( Comparator.comparing(People::getDateOfBirth ,Comparator.nullsLast(LocalDate::compareTo)).reversed()).collect(toList());
-        peopleList.stream().sorted(Collections.reverseOrder(Comparator.comparing(People::getDateOfBirth ,Comparator.nullsFirst(LocalDate::compareTo)))).collect(toList());
+        peopleList.stream().sorted( Comparator.comparing(People::getDateOfBirth
+                ,Comparator.nullsLast(LocalDate::compareTo)).reversed()).collect(toList());
+        peopleList.stream().sorted(Collections.reverseOrder(Comparator.comparing(People::getDateOfBirth
+                ,Comparator.nullsFirst(LocalDate::compareTo)))).collect(toList());
 
         peopleList.stream().sorted(Comparator.comparing(People::getLastName)
                 .thenComparing(People::getFirstName)
@@ -145,9 +155,11 @@ public class CompareFunctionality {
 
         Comparator<Integer>  intComp = Comparator.naturalOrder();
         int[]  arr = {1,5,3,8,3,6,3};
-        List<Integer> qqq = Arrays.stream(arr).boxed().sorted((a, b) -> Integer.compare(a, b)).collect(toList());
+        List<Integer> qqq = Arrays.stream(arr).boxed()
+                .sorted((a, b) -> Integer.compare(a, b)).collect(toList());
         List<Integer> qqq11;
-        qqq11 = Arrays.stream(arr).boxed().sorted(Comparator.comparingInt(a -> a)).collect(toList());
+        qqq11 = Arrays.stream(arr)
+                .boxed().sorted(Comparator.comparingInt(a -> a)).collect(toList());
         List<Integer> jkfls = Arrays.stream(arr).sorted().boxed().collect(toList());
         Arrays.stream(arr).boxed().sorted((a, b) -> a - b).collect(toList());
 
@@ -199,6 +211,7 @@ public class CompareFunctionality {
     class DateOfBirthComparator implements Comparator<People> {
         @Override
         public int compare(People p1, People p2) {
+
             return p1.getDateOfBirth().compareTo(p2.getDateOfBirth());
         }
     }
@@ -232,8 +245,17 @@ class ApplyOperationEmployee {
         Map<String, Long> hhh1;
         try (Stream<String> lines = Files.lines(path)) {
 
-            hhh = lines.flatMap(line -> line.lines().map(e -> e.split(" "))).flatMap(Arrays::stream).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-            hhh1 = lines.flatMap(line -> line.lines().map(e -> e.split(" "))).flatMap(Stream::of).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+            lines.flatMap( e ->e.lines().map(e1 ->e1.split(" ")))
+                    .flatMap(Arrays::stream)
+                    .collect(Collectors.groupingBy(Function.identity() ,Collectors.counting()));
+
+            hhh = lines.flatMap(line -> line.lines().map(e -> e.split(" ")))
+                    .flatMap(Arrays::stream)
+                    .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+            hhh1 = lines.flatMap(line -> line.lines()
+                    .map(e -> e.split(" ")))
+                    .flatMap(Stream::of)
+                    .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         }catch (IOException e){
             e.getMessage();
         }

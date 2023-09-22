@@ -3,6 +3,8 @@ package com.comprehensive.practice.company.codility.java8;
 
 //Check functionalInterface functionality.
 
+import com.comprehensive.practice.company.codility.test.easy.SumZero;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -94,6 +96,8 @@ public class FunctionalInterfaceConceptCheck {
         //// IntStream perfect valid scenario
 
         int[] intArray = IntStream.of(1, 2, 3, 4, 5).toArray();
+        IntStream.range(2,9).mapToObj(Integer::valueOf).collect(Collectors.toList());
+        IntStream.range(2,9).boxed().reduce(0 , (a1,a2) -> a1+a2);
         List<Integer> ints = IntStream.of(1, 2, 3, 4, 5)
                 .mapToObj(Integer::valueOf).collect(Collectors.toList());
         List<Integer> ints1 = IntStream.of(1, 2, 3, 4, 5)

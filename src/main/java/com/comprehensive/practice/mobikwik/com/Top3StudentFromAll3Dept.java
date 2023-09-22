@@ -81,8 +81,11 @@ public class Top3StudentFromAll3Dept {
                    sortedList.add(ssss);
                });
 
-       List<List<Student>> sssss = studentList.stream().collect(Collectors.groupingBy(Student::getDepartment)).entrySet()
-               .stream().map(ss -> ss.getValue().stream().sorted(byPercentage).limit(3).collect(Collectors.toList()))
+       List<List<Student>> sssss = studentList.stream()
+               .collect(Collectors.groupingBy(Student::getDepartment))
+               .entrySet()
+               .stream()
+               .map(ss -> ss.getValue().stream().sorted(byPercentage).limit(3).collect(Collectors.toList()))
                .collect(Collectors.toList());
 
        System.out.println(sssss);
