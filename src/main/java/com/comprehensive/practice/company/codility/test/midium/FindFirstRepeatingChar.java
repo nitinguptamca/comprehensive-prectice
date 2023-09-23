@@ -19,7 +19,6 @@ public class FindFirstRepeatingChar {
                 .map(e -> e.getKey()).orElseGet(() -> '*');
         System.out.println(value);
 
-
         LinkedHashMap<Character, Long> ssssswwww = findOutFirstRepeatingChar.chars()
                 .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(Function.identity(),

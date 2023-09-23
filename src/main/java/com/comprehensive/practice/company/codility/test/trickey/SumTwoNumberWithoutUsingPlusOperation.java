@@ -11,6 +11,16 @@ public class SumTwoNumberWithoutUsingPlusOperation {
         return add_no_arithm(sum, carry); // recurse
     }
 
+
+    public int add_to_number(int a ,int b){
+        if(b==0) return a;
+        int sum = a^b;
+        System.out.println(sum);
+        int carry = a&b<<1;
+        System.out.println(carry);
+        return add_to_number(sum ,carry);
+    }
+
     public static void main(String[] args) {
         int a = 17;
         int b = 16;

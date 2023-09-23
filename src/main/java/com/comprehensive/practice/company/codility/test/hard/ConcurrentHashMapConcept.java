@@ -8,19 +8,22 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * <H1>ConcurrentHashMap is the Map implementation that allows us to modify the Map while iteration. The ConcurrentHashMap
+ * <H1>ConcurrentHashMap is the Map implementation that allows us to modify the Map while iteration.
+ * The ConcurrentHashMap
  * operations are thread-safe. ConcurrentHashMap doesn't allow null for keys and values.</h1>
  * <h2>Signature of CHM<br>
  * public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
  *     implements ConcurrentMap<K,V>, Serializable {
  *     <br><br>
- *     ConcurrentHashMap map = new ConcurrentHashMap(int initialCapacity, float loadFactor, int concurrencyLevel)
+ *     ConcurrentHashMap map = new ConcurrentHashMap(int initialCapacity, float loadFactor,
+ *     int concurrencyLevel)
  *
  *
  *     </h2>
  *     <br><br>
  * The table inside ConcurrentHashMap is divided among Segments (which extends Reentrant Lock), each
- * of which itself is a concurrently readable hash table. Each segment requires uses single lock to consistently
+ * of which itself is a concurrently readable hash table. Each segment requires uses single
+ * lock to consistently
  * update its elements flushing all the changes to main memory
  * <h2> static class Segment<K,V> extends ReentrantLock implements Serializable { </h2>
  * <br>

@@ -13,6 +13,8 @@ import java.util.stream.Stream;
 public class ReverseString {
     public static void main1(String[] args) {
         String  input ="nitin";
+
+        input.chars().mapToObj(c ->(char)c).map(String::valueOf).reduce("",(s1,s2) ->s2+s1);
         String reverseStr =input.chars()
         .mapToObj( e -> Character.valueOf((char)e))
                 .reduce("", (s,c) -> c+s ,(s1 ,s2) ->s2+s1);
@@ -75,7 +77,5 @@ public class ReverseString {
         IntStream.range(0, charArray.length)
                 .mapToObj(i -> charArray[(charArray.length - 1) - i])
                 .forEach(System.out::print);
-        String ssss = "sfdsf".chars().mapToObj(c -> (char) c).sorted(Collections.reverseOrder()).map(String::valueOf)
-                .collect(Collectors.joining());
     }
 }

@@ -11,8 +11,10 @@ public class MakeGroup1 {
 
         String[] strArray = {"dog" ,"dobby", "cat","caome","apple","allow", "baba", "Babby" };
         List<String> list =Arrays.asList(strArray);
-        Map<Character, String> ssss = list.stream().collect(Collectors.toMap(word -> word.charAt(0), word -> word,
+        Map<Character, String> ssss = list.stream()
+                .collect(Collectors.toMap(word -> word.charAt(0), word -> word,
                 (s, a) -> s + ", " + a));
+        Map<Character, List<String>> kkk = list.stream().collect(Collectors.groupingBy(w -> w.charAt(0)));
         System.out.println(ssss);
     }
 }

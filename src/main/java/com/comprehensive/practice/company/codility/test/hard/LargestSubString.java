@@ -10,6 +10,7 @@ public class LargestSubString {
         String str= "abcdesaklhfqweirqiewljrlqkwehfqwyriowqdlskaj";
         String strss=getUniqueCharacterSubstringBruteForce(str);
         System.out.println(strss);
+
     }
 
    static String getUniqueCharacterSubstringBruteForce(String input) {

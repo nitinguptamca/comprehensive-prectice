@@ -8,6 +8,10 @@ import java.util.stream.Stream;
 public class AnagramList {
     public static void main(String[] args) {
         String[] strArr = {"cat", "cta", "act", "atc", "tac", "tca"};
+/*        boolean bbb = Arrays.stream(strArr)
+                .sorted(String::compareTo)
+                .distinct()
+                .count() == 1;*/
         boolean count = Arrays.stream(strArr)
                 .map(String::toCharArray)
                 .map(arr -> {

@@ -23,6 +23,28 @@ public class CountTheNumberOf2s {
         System.out.println(countTheNumberof2(100));
     }
 
+    public static int countof2s(int number){
+        int remainder=0;
+        int tempPower=0;
+        int countOf2=0;
+        int position=0;
+        int power=1;
+        while(number>0){
+            remainder =number%10;
+            tempPower = power/10;
+            countOf2 =countOf2+remainder*position*tempPower;
+            if(remainder==2){
+               countOf2= countOf2+1;
+            } else if (remainder>2) {
+                countOf2=countOf2*power;
+            }
+            position++;
+            power=power*10;
+            number=number/10;
+        }
+        return countOf2;
+    }
+
     private static int countTheNumberof2(int number) {
         int remainder =0;
         int tempPower=0;
