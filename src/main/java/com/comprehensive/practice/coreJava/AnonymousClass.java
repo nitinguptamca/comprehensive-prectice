@@ -12,6 +12,8 @@ public class AnonymousClass {
         }
     };
 
+    Runnable runnable = () -> System.out.println("I am lambda");
+
     private int testing=123;
 
     abstract class AbstractClass {
@@ -28,6 +30,14 @@ public class AnonymousClass {
         };
 
         testingew.doSomething();
+        anonymousClass.action.run();
+        anonymousClass.runnable.run();
+
+        Thread th1 = new Thread(anonymousClass.action);
+        th1.start();
+        Thread th2 =new Thread(anonymousClass.runnable);
+        th2.start();
+
 
     }
 

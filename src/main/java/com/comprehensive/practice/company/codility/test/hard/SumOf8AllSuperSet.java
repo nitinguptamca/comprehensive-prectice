@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  */
 public class SumOf8AllSuperSet {
     public static void main(String[] args) {
-        int[] numbers = {1,9,6 ,-3,-2,-1,0,2,3,4,5,7,8,10,11};
+        int[] numbers = {1,9,6,4 ,-3,-2,-1,0,2,};
         Set<Set<Integer>> possibleCombinationOf8 = possibleCombinationof8List(numbers);
         System.out.println(possibleCombinationOf8);
     }

@@ -1,5 +1,7 @@
 package com.comprehensive.practice.datastructure.map.pr1;
 
+import com.comprehensive.practice.datastructure.map.CustomMap;
+
 import java.util.Objects;
 
 public class CustomHashMapPr1 <K extends Comparable<K> , V>{
@@ -72,4 +74,24 @@ public class CustomHashMapPr1 <K extends Comparable<K> , V>{
         return key.hashCode()%capacity;
     }
 
+}
+
+class Testing{
+    public static void main(String[] args) {
+        CustomHashMapPr1<Integer ,Integer> chm= new CustomHashMapPr1<>(3);
+        chm.put(1, 1);
+        chm.put(2, 3);
+        chm.put(3, 2);
+        chm.put(4, 4);
+        chm.put(1, 5);
+        chm.put(2, 7);
+        chm.put(7, 8);
+        chm.put(8, 9);
+        chm.put(13, 9);
+        chm.put(18, 9);
+        chm.put(23, 9);
+        chm.put(9, 10);
+
+
+    }
 }

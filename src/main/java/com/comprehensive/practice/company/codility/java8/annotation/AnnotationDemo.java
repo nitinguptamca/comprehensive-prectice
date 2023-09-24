@@ -35,6 +35,8 @@ class TypeAnnotationJava {
 
         // Annotating the type of a string
         @TypeAnnoDemo String string = "I am annotated with a type annotation";
+        @MyRepeatedAnnos({}) String[] aaa = new String[8];
+
         System.out.println(string);
         abc();
     }

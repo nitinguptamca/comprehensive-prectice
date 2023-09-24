@@ -1,6 +1,9 @@
 package com.comprehensive.practice.company.codility.test.hard;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * @author nitin
@@ -10,6 +13,13 @@ import java.util.Arrays;
 public class ReverseStringExceptSpecialCharacter {
     public static void main(String[] args) {
         String str ="abc*&ktm$#@ptr";
+
+        String reduce = str.chars().mapToObj(c -> (char) c).map(String::valueOf)
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream()
+                .map(String::valueOf)
+                .reduce("", (a, b) ->
+                        checkSpecialStr(a) == true ? a + b : b + a);
         String ffff= reverseStringWithoutSpecialChar(str);
         System.out.println(ffff);
     }
@@ -69,6 +79,13 @@ public class ReverseStringExceptSpecialCharacter {
 
     public static boolean checkSpecialChar(char  checkChar){
         return !Character.isAlphabetic(checkChar) ;
+    }
+
+    public static boolean checkSpecialStr(String  str){
+        if(!str.isBlank()) {
+            char checkChar = str.charAt(0);
+            return !Character.isAlphabetic(checkChar);
+        }else return false;
     }
 
 }

@@ -64,7 +64,9 @@ public class ReverseString {
                 map(i -> String.valueOf(s.charAt(i))). // grab each index's character
                 collect(Collectors.joining());         // join each single-character String into the final String
 
-        String kk= s.chars().mapToObj( c -> Character.valueOf((char)c)).reduce("", (a,b) -> b+a ,(s1,s2) -> s2+s1);
+        String kk= s.chars().mapToObj( c -> Character.valueOf((char)c))
+
+                .reduce("", (a,b) -> b+a ,(s1,s2) -> s2+s1);
         kk= s.chars().mapToObj( c -> (char)c).reduce("", (a,b) -> b+a ,(s1,s2) -> s2+s1);
      ////   kk= s.chars().mapToObj( c -> (char)c).reduce("", (a,b) -> b+a );
 

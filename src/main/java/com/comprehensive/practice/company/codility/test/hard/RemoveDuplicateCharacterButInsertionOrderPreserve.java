@@ -20,6 +20,12 @@ public class RemoveDuplicateCharacterButInsertionOrderPreserve {
                 )).entrySet().stream().map(e -> e.getKey())
                 .reduce("", (a, b) -> a + b, (s1, s2) -> s1 + s2);
 
+        input.chars().mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(
+                        Function.identity(), LinkedHashMap::new, Collectors.counting()
+                )).entrySet().stream().map(e -> e.getKey()).map(String::valueOf)
+                .reduce("", (a, b) -> a + b);
+
 
         String ssss1111 = input.chars().mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(

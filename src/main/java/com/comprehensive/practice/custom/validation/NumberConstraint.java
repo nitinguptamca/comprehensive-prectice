@@ -10,16 +10,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Documented
-@Constraint(validatedBy = ContactNumberValidator.class)
-@Target( { ElementType.METHOD, ElementType.FIELD })
+@Constraint(validatedBy = StringConstraintValidator.class)
+@Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ContactNumberConstraint {
-    String message() default "Invalid phone number";
+public @interface NumberConstraint {
+    String message() default "Invalid number";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
-
-
-
-
-
