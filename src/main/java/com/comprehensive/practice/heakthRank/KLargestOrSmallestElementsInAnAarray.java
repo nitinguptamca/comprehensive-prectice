@@ -123,8 +123,8 @@ public class KLargestOrSmallestElementsInAnAarray {
 	}
 
 	public static void main(String[] args) {
-		Integer arr[] = new Integer[] { 1, 23, 12, 9, 30, 2, 50 };
-		int k = 5;
+		Integer arr[] = new Integer[] { 1, 23, 12, 9, 30, 2, 50 ,3 };
+		int k = 2;
 		KLargestDemo(arr, k);
 		kLargest2(arr, k);
 		System.out.print("K'th smallest element is " + kthSmallest(arr, 0,

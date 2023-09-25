@@ -1,0 +1,10 @@
+package com.comprehensive.practice.designpatterns.structuralDesignPattern.decorator.starbuzzWithSizes;
+
+public abstract class CondimentDecorator extends Beverage {
+	public Beverage beverage;
+	public abstract String getDescription();
+	
+	public Size getSize() {
+		return beverage.getSize();
+	}
+}
