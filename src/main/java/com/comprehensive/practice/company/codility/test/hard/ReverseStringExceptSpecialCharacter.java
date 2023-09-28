@@ -20,6 +20,7 @@ public class ReverseStringExceptSpecialCharacter {
                 .map(String::valueOf)
                 .reduce("", (a, b) ->
                         checkSpecialStr(a) == true ? a + b : b + a);
+
         String ffff= reverseStringWithoutSpecialChar(str);
         System.out.println(ffff);
     }
