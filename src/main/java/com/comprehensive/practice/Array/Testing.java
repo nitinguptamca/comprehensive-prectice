@@ -1,4 +1,4 @@
-package com.comprehensive.practice;
+package com.comprehensive.practice.Array;
 
 import java.util.Arrays;
 import java.util.HashMap;

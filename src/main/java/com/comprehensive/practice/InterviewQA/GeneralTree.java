@@ -1,4 +1,4 @@
-package com.comprehensive.practice;
+package com.comprehensive.practice.InterviewQA;
 
 import java.util.Stack;
 
