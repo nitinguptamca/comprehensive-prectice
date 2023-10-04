@@ -20,6 +20,14 @@ public class Testing {
         //print the index of non repeated first char
         char[] chrArray=str.toCharArray();
         int repeatCharIndex=getFirstRepeateChar(chrArray);
+      char  sdfsdfs = str.chars().mapToObj(c -> (char) c)
+              .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+              .entrySet()
+              .stream()
+              .filter(e -> e.getValue() == 1)
+              .findFirst()
+              .map(Map.Entry::getKey)
+              .orElseGet(() ->'*');
         System.out.println(repeatCharIndex);
     }
 

@@ -85,6 +85,7 @@ public class GeneralTree<T extends Comparable<T>> {
         return count;
     }
 
+
     static class Node<T extends Comparable<T>> {
         T data;
         Node<T> leftChild, rightChild, parentNode, leftchild1 ,rightChild1;
