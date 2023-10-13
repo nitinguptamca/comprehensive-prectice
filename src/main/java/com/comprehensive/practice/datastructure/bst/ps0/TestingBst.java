@@ -26,6 +26,8 @@ public class TestingBst {
         bst.addElement(2);
         bst.addElement(12);
 
+
+
         bst.printInorder(bst.getRoot());
         System.out.println("\n height_of_tree"+bst.height_of_tree(bst.getRoot()));
         //bst.levelOrderTraversal(bst.getRoot());

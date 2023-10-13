@@ -50,7 +50,15 @@ public class CustomMap<K extends Comparable<K>,V> {
            Node<K,V> previous=null;
            while (current!=null){
                if(current.key.compareTo(key)==0){
-                 current.value=value;
+                 if(previous==null){
+                     newNode.next=current.next;
+                     table[hashCodeValue]=newNode;
+                     return;
+                 }else {
+                     newNode.next=current.next;
+                     previous.next=newNode;
+                     return;
+                 }
                }
                 previous=current;
                current=current.next;
