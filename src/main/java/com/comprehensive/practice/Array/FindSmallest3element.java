@@ -16,5 +16,15 @@ public class FindSmallest3element {
        int smallest3=Arrays.stream(array).flatMapToInt(l ->Arrays.stream(l)).boxed().sorted().skip(2).findFirst().get();
         System.out.println(smallest3);
 
+        int[] output= new int[4*3];
+        int count=0;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[0].length; j++) {
+                output[count++]= array[i][j];
+            }
+        }
+       int aaa=Arrays.stream(output).boxed().sorted().skip(2).findFirst().get();
+        System.out.println(aaa);
+
     }
 }
