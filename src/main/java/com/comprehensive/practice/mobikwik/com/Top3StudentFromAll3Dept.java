@@ -72,6 +72,7 @@ public class Top3StudentFromAll3Dept {
        
         Comparator<Student> byPercentage = (Student obj1,Student obj2) -> obj1.getPercentage() >
                 obj2.getPercentage()? -1:1;
+        Comparator<Student> percentageBy = Comparator.comparing(Student::getPercentage);
 
         List<List<Student>>  sortedList = new ArrayList<>();
        deptMap.entrySet().stream()

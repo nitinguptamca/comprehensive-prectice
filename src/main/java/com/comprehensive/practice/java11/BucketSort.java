@@ -18,7 +18,7 @@ public class BucketSort {
         int[] sort = new BucketSort().sort(array, 0, 9);
         for (int i = 0; i < sort.length; i++) {
             for(int j=0;j<sort[i];j++){
-                System.out.println(i);
+                System.out.print(" "+i);
             }
         }
     }

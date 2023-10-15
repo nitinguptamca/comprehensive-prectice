@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  */
 
 public class problem2 {
-    public static void main123(String[] args) {
+    public static void main(String[] args) {
         AtomicInteger index = new AtomicInteger();
         String input = "the quick the brown quick brown the frog";
         
@@ -24,7 +24,7 @@ public class problem2 {
 
     }
 
-    public static void main(String[] args) {
+    public static void main13(String[] args) {
         String input = "the quick the brown quick brown the frog";
         String[] arrStr= input.split(" ");
          int[] intArr ={1,4,4,7,9,8,3,5,5,7,8,2,3,8,-3,7,13,12,-9};
