@@ -1,6 +1,7 @@
 package com.nitin.gupta.newchallange;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -23,6 +24,26 @@ public class FindOutMaxLengthSubStringWithoutRepeatingCharacter {
          */
        int sum= Arrays.stream(outputASdefine(arrary)).boxed().reduce(0 ,(a ,b) ->a+b);
         System.out.println(sum);
+
+        int[][]  array = {{54,32,1},{22,56,99},{10,20,30}};
+        System.out.println(findoutSmallestItem(array));
+
+        System.out.println(findoutLargestItem(array));
+    }
+
+    private static int findoutLargestItem(int[][] array) {
+        Comparator<Integer> integerComparator = Integer::compare;
+        int sss = Arrays.stream(array).flatMap(a -> Arrays.stream(a).asLongStream().boxed())
+                .sorted(Comparator.reverseOrder()).findFirst().get().intValue();
+        int ss2s = Arrays.stream(array).flatMapToInt(Arrays::stream).boxed()
+                .sorted(Comparator.reverseOrder()).findFirst().get().intValue();
+        int bb = Arrays.stream(array).flatMapToInt(Arrays::stream).boxed().sorted(integerComparator.reversed()).findFirst().get().intValue();
+       int sssss= Arrays.stream(array).flatMap(a -> Arrays.stream(a).boxed()).sorted().findFirst().get().intValue();
+     return    Arrays.stream(array).flatMapToInt(Arrays::stream).boxed().sorted((a,b) -> b-a).findFirst().get().intValue();
+    }
+
+    private static int findoutSmallestItem(int[][] array) {
+      return Arrays.stream(array).flatMapToInt(Arrays::stream).boxed().sorted().findFirst().get().intValue();
     }
 
     private static int[] outputASdefine(int[] arrary) {
