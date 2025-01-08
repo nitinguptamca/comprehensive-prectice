@@ -34,7 +34,7 @@ public class Fibonacci extends RecursiveTask<Integer> {
     }
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        Fibonacci fibonacci = new Fibonacci(100);
+        Fibonacci fibonacci = new Fibonacci(10);
       //  Integer aaaa = ForkJoinPool.commonPool().invoke(fibonacci);
         ForkJoinPool forkJoinPool = new ForkJoinPool();
         forkJoinPool.invoke(fibonacci);

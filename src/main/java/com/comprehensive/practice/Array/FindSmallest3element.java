@@ -13,7 +13,8 @@ public class FindSmallest3element {
                 {20,11,67,13},
                 {44,12,23,43}
         };
-       int smallest3=Arrays.stream(array).flatMapToInt(l ->Arrays.stream(l)).boxed().sorted().skip(2).findFirst().get();
+       int smallest3=Arrays.stream(array)
+               .flatMapToInt(l ->Arrays.stream(l)).boxed().sorted().skip(2).findFirst().get();
         System.out.println(smallest3);
 
         int[] output= new int[4*3];

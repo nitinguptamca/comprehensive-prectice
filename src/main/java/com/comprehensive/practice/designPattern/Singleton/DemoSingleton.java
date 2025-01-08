@@ -1,6 +1,7 @@
 package com.comprehensive.practice.designPattern.Singleton;
 
 import java.io.Serializable;
+import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -10,11 +11,11 @@ public class DemoSingleton implements Serializable {
 
     int count = 1;
     private DemoSingleton() {
-       count +=100 ;
+       count +=new Random().nextInt();
     }
 
-    private static class DemoSingletonHolder {
-        public static final DemoSingleton INSTANCE = new DemoSingleton();
+    private final  static class DemoSingletonHolder {
+        private static final DemoSingleton INSTANCE = new DemoSingleton();
     }
 
     public static DemoSingleton getInstance() {

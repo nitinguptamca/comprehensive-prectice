@@ -1,4 +1,4 @@
-package com.comprehensive.practice;
+package com.comprehensive.practice.company.codility;
 
 import java.util.Arrays;
 

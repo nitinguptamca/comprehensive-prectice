@@ -7,6 +7,8 @@ public class Cafe {
 	public static void main(String args[]) {
 		PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
 		DinerMenu dinerMenu = new DinerMenu();
+		List<List<Integer>> lister = new ArrayList<>();
+		//convert to arra
 		
 		// with no iterators
 		System.out.println("\nMENU\n----\nBREAKFAST");

@@ -66,10 +66,11 @@ public class DeepCopyInJava {
         // Printing the designation of 'emp1'
 
         System.out.println(emp1.dept.designation); // Output : AVP
+        emp1.dept.designation="sdsds";
 
         // Changing the designation of 'emp2'
 
-        emp2.dept.designation = "Director";
+        //emp2.dept.designation = "Director";
 
         // This change will be reflected in original Employee 'emp1'
 
