@@ -1,5 +1,6 @@
 package com.nitin.gupta.newchallange;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -12,6 +13,28 @@ public class FindOutMaxLengthSubStringWithoutRepeatingCharacter {
     public static void main(String[] args) {
         String input  ="NITINGUPTA";
         System.out.println( findOutNonRepeatableMaxLengthSubString(input));
+        int[] arrary ={4,1,2};
+        /**
+         * 4,1,2
+         * 4+1 ,1 ,2
+         * 5,5+1,2
+         * 5,6,6+2
+         * 19
+         */
+       int sum= Arrays.stream(outputASdefine(arrary)).boxed().reduce(0 ,(a ,b) ->a+b);
+        System.out.println(sum);
+    }
+
+    private static int[] outputASdefine(int[] arrary) {
+        if(arrary.length<=1){
+            return arrary;
+        }else{
+            arrary[0] =arrary[0]+arrary[1];
+            for (int i = 1; i < arrary.length; i++) {
+                arrary[i]=arrary[i-1]+arrary[i];
+            }
+            return  arrary;
+        }
     }
 
     static String findOutNonRepeatableMaxLengthSubString(String input){
